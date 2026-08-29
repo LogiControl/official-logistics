@@ -639,8 +639,10 @@ body{
   <div class="success-card">
     <div class="success-icon">✓</div>
     <!-- UPDATED title -->
-    <h2 class="success-title">ส่งคำขอนัดรับสินค้าเรียบร้อย</h2>
-    <p class="success-desc">ระบบได้รับคำขอของท่านแล้ว กรุณาแจ้งแอดมินเพื่อยืนยันคิวรถ</p>
+    <h2 class="success-title">บันทึกนัดหมายสำเร็จ</h2>
+    <p class="success-desc">เจ้าหน้าที่รับทราบข้อมูลแล้ว กรุณาแจ้งยืนยันกับแอดมินอีกครั้งเพื่อเริ่มกระบวนการเข้ารับ
+
+</p>
 
     <div class="ref-box">
       <div class="ref-stripe"></div>
@@ -666,7 +668,7 @@ body{
 
   <!-- UPDATED Timeline -->
   <div class="timeline-card">
-    <div class="tl-title">สถานะคำขอ</div>
+    <div class="tl-title">สถานะนัดหมาย</div>
     <div class="tl">
       <!-- Step 1: Done -->
       <div class="tl-step">
@@ -685,15 +687,15 @@ body{
         </div>
         <div class="tl-body">
           <div class="tl-name wait">รอการตรวจสอบสิทธิ์ผู้ขายใหม่</div>
-          <div class="tl-desc">กรุณาติดต่อแอดมินเพื่ออนุมัติสิทธิ์รับชำระเงิน</div>
+          <div class="tl-desc">กรุณาคัดลอกข้อมูลด้านล่างและแจ้งแอดมิน</div>
         </div>
       </div>
       <!-- Step 3: Pending -->
       <div class="tl-step">
         <div class="tl-icon pending"></div>
         <div class="tl-body">
-          <div class="tl-name muted">ออกรหัสผู้ขายและยืนยันคิวรถ</div>
-          <div class="tl-desc">ระบบจะออก Seller ID และยืนยันคิวรถเมื่อได้รับการอนุมัติ</div>
+          <div class="tl-name muted">เข้ารับสินค้าตามนัด</div>
+          <div class="tl-desc">ยืนยันตัวตนและยอดรายการ · ขนส่งเข้ารับสินค้าอย่างเป็นทางการ</div>
         </div>
       </div>
     </div>
@@ -715,7 +717,7 @@ body{
         <path d="M9 1.5C4.86 1.5 1.5 4.86 1.5 9c0 1.38.36 2.67.99 3.79L1.5 16.5l3.71-.99A7.44 7.44 0 009 16.5c4.14 0 7.5-3.36 7.5-7.5S13.14 1.5 9 1.5z" stroke="white" stroke-width="1.5" stroke-linejoin="round"></path>
         <path d="M6 9h.01M9 9h.01M12 9h.01" stroke="white" stroke-width="2" stroke-linecap="round"></path>
       </svg>
-      ติดต่อแอดมินเพื่อรับรหัส Seller ID
+      ติดต่อแอดมินเพื่อยันยัน
     </a>
   </div>
 
@@ -800,7 +802,7 @@ body{
         <textarea class="form-area" id="inp-addr" placeholder="เช่น 123/45 หมู่ 6 ซอยสุขุมวิท..."></textarea>
 
         <div class="addr-confirmed" id="addrConfirmed">
-          <span class="addr-icon">✓</span>
+          <span class="addr-icon">✅</span>
           <div class="addr-text">ตรวจสอบพื้นที่แล้ว: รองรับการเข้ารับสินค้า (Escrow Active)</div>
         </div>
       </div>
