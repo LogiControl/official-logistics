@@ -8546,12 +8546,6 @@ function buildCards(month) { /* replaced by renderCalendar */ }
    MONTH SWITCHING
 ══════════════════════════════════════════ */
 function switchMonth(dir) {
-  currentMonth += dir;
-  if (currentMonth < 0) currentMonth = 0;
-  if (currentMonth > 4) currentMonth = 4;
-  document.getElementById('monthLabel').textContent = ALL_NAMES[currentMonth];
-  document.getElementById('prevBtn').disabled = currentMonth === 0;
-  document.getElementById('nextBtn').disabled = currentMonth === 4;
   const MN=[8,9,10,11,12];
   const now3=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Bangkok'}));
   const tY=now3.getFullYear(),tM=now3.getMonth()+1,tD=now3.getDate();
@@ -8560,6 +8554,23 @@ function switchMonth(dir) {
     if(2026<tY||(2026===tY&&cM<tM)||(2026===tY&&cM===tM&&cD<=tD)) return n;
     return n+(v.am!=='f'?1:0)+(v.pm!=='f'?1:0);
   },0);
+
+  // หาเดือนถัดไปที่มีรอบว่าง
+  let next = currentMonth + dir;
+  while(next >= 0 && next <= 4) {
+    if(cnt(ALL_DATA[next], next) > 0) break;
+    next += dir;
+  }
+  if(next < 0 || next > 4) return;
+  currentMonth = next;
+
+  document.getElementById('monthLabel').textContent = ALL_NAMES[currentMonth];
+  // ปิดปุ่มถ้าไม่มีเดือนที่มีรอบว่างก่อนหน้า/ถัดไป
+  let hasPrev = false, hasNext = false;
+  for(let i=0;i<currentMonth;i++) if(cnt(ALL_DATA[i],i)>0) hasPrev=true;
+  for(let i=currentMonth+1;i<=4;i++) if(cnt(ALL_DATA[i],i)>0) hasNext=true;
+  document.getElementById('prevBtn').disabled = !hasPrev;
+  document.getElementById('nextBtn').disabled = !hasNext;
   document.getElementById('monthMeta').textContent = cnt(ALL_DATA[currentMonth],currentMonth)+' รอบว่าง';
   selCalDay=null;
   document.getElementById('slotPanel').classList.remove('show');
@@ -8912,7 +8923,6 @@ document.addEventListener('keydown', e => {
    INIT
 ══════════════════════════════════════════ */
 (function init() {
-  const MONTH_NUM  = { april: 8, may: 9, oct: 10, nov: 11, dec: 12 };
   const MN2=[8,9,10,11,12];
   const now4=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Bangkok'}));
   const tY2=now4.getFullYear(),tM2=now4.getMonth()+1,tD2=now4.getDate();
@@ -8921,9 +8931,23 @@ document.addEventListener('keydown', e => {
     if(2026<tY2||(2026===tY2&&cM<tM2)||(2026===tY2&&cM===tM2&&cD<=tD2)) return n;
     return n+(v.am!=='f'?1:0)+(v.pm!=='f'?1:0);
   },0);
-  document.getElementById('monthMeta').textContent = cnt2(APRIL,0) + ' รอบว่าง';
-  document.getElementById('prevBtn').disabled = true;
-  document.getElementById('nextBtn').disabled = false;
+
+  // หาเดือนแรกที่มีรอบว่าง
+  currentMonth = 0;
+  for(let i=0;i<=4;i++){
+    if(cnt2(ALL_DATA[i],i) > 0){ currentMonth=i; break; }
+  }
+
+  document.getElementById('monthLabel').textContent = ALL_NAMES[currentMonth];
+  document.getElementById('monthMeta').textContent = cnt2(ALL_DATA[currentMonth],currentMonth) + ' รอบว่าง';
+
+  // ตั้งค่าปุ่ม prev/next
+  let hasPrev=false, hasNext=false;
+  for(let i=0;i<currentMonth;i++) if(cnt2(ALL_DATA[i],i)>0) hasPrev=true;
+  for(let i=currentMonth+1;i<=4;i++) if(cnt2(ALL_DATA[i],i)>0) hasNext=true;
+  document.getElementById('prevBtn').disabled = !hasPrev;
+  document.getElementById('nextBtn').disabled = !hasNext;
+
   renderRegions();
   renderCalendar();
   setStep(1);
