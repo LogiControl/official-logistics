@@ -36,37 +36,37 @@
   --t-xl:  clamp(18px,4.6vw,22px);
   --t-2xl: clamp(22px,5.5vw,28px);
 
-  --navy:      #0d2a5e;
-  --navy-mid:  #1a3c6e;
-  --navy-lt:   #1e4d8c;
-  --royal:     #1a56db;
-  --royal-lt:  #2563eb;
-  --sky:       #e8f0fd;
+  --navy:      #1A3FC4;
+  --navy-mid:  #1E4FD8;
+  --navy-lt:   #2D5BE3;
+  --royal:     #1A56DB;
+  --royal-lt:  #3B82F6;
+  --sky:       #EEF2FF;
   --gold:      #b8860b;
   --gold-lt:   #f0c040;
   --gold-bg:   #fdf8e6;
 
-  --ink:       #0f172a;
-  --ink-2:     #1e293b;
-  --slate:     #334155;
-  --mid:       #64748b;
-  --muted:     #94a3b8;
-  --pale:      #f1f5f9;
+  --ink:       #0F1B3D;
+  --ink-2:     #1E2D5A;
+  --slate:     #3D4F7C;
+  --mid:       #6B7FD4;
+  --muted:     #9AA5D4;
+  --pale:      #F0F2FF;
   --white:     #ffffff;
 
   --green:     #15803d;--green-bg:#f0fdf4;--green-bd:#86efac;
   --amber:     #b45309;--amber-bg:#fffbeb;--amber-bd:#fcd34d;
   --red:       #b91c1c;--red-bg:#fef2f2;--red-bd:#fecaca;
 
-  --surface:   rgba(255,255,255,0.96);
-  --glass:     rgba(255,255,255,0.82);
-  --glass-blur:blur(16px);
-  --shadow-sm: 0 1px 3px rgba(13,42,94,0.08),0 1px 2px rgba(13,42,94,0.06);
-  --shadow:    0 4px 16px rgba(13,42,94,0.10),0 2px 6px rgba(13,42,94,0.07);
-  --shadow-lg: 0 8px 32px rgba(13,42,94,0.14),0 4px 12px rgba(13,42,94,0.08);
+  --surface:   rgba(255,255,255,0.97);
+  --glass:     rgba(255,255,255,0.85);
+  --glass-blur:blur(20px);
+  --shadow-sm: 0 2px 8px rgba(26,63,196,0.10),0 1px 3px rgba(26,63,196,0.07);
+  --shadow:    0 4px 20px rgba(26,63,196,0.13),0 2px 8px rgba(26,63,196,0.08);
+  --shadow-lg: 0 8px 40px rgba(26,63,196,0.18),0 4px 16px rgba(26,63,196,0.10);
 
-  --border:    rgba(148,163,184,0.25);
-  --border-2:  rgba(148,163,184,0.45);
+  --border:    rgba(107,127,212,0.20);
+  --border-2:  rgba(107,127,212,0.38);
   --px:        clamp(12px,4vw,20px);
   --gap:       clamp(8px,2vw,12px);
   --radius:    10px;
@@ -80,10 +80,10 @@ body{
   font-weight:400;
   line-height:1.65;
   color:var(--ink);
-  background:#eef3fb;
+  background:#E8ECFA;
   background-image:
-    radial-gradient(ellipse 80% 60% at 10% 0%,rgba(26,61,110,0.07) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 50% at 90% 100%,rgba(26,86,219,0.06) 0%,transparent 60%);
+    radial-gradient(ellipse 80% 60% at 10% 0%,rgba(26,63,196,0.10) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 100%,rgba(45,91,227,0.08) 0%,transparent 60%);
   min-height:100vh;
   -webkit-font-smoothing:antialiased;
   -webkit-tap-highlight-color:transparent;
@@ -92,20 +92,17 @@ body{
 
 /* ════ HEADER ════ */
 .header{
-  background:linear-gradient(170deg,var(--navy) 0%,var(--navy-mid) 55%,var(--navy-lt) 100%);
+  background:linear-gradient(145deg,#1A3FC4 0%,#1E4FD8 50%,#2D5BE3 100%);
   position:relative;overflow:hidden;
-  box-shadow:0 4px 24px rgba(13,42,94,0.35);
+  box-shadow:0 6px 32px rgba(26,63,196,0.40);
 }
 .header::before{
   content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
-  background-size:40px 40px;
+  background:radial-gradient(ellipse 70% 80% at 80% -20%,rgba(255,255,255,0.12) 0%,transparent 60%);
 }
 .header-stripe{
-  height:5px;
-  background:linear-gradient(90deg,#8b6914,var(--gold-lt),#f5d87a,var(--gold-lt),#8b6914);
+  height:4px;
+  background:linear-gradient(90deg,#FF6B35,#FF9A5C,#FFB347,#FF9A5C,#FF6B35);
   background-size:300% 100%;
   animation:stripe-move 6s linear infinite;
 }
@@ -538,7 +535,7 @@ body{
 
   <!-- REGION -->
   <div class="region-section">
-    <div class="section-title">โควตาประจำภูมิภาค — เมษายน 2569</div>
+    <div class="section-title">โควตาประจำภูมิภาค — กันยายน 2569</div>
     <div class="region-grid" id="regionGrid"><div class="region-card warn">
       <div class="rc-head">
         <span class="rc-name">ภาคกลาง</span>
